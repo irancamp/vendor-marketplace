@@ -1,0 +1,488 @@
+/* =============================================================
+   Vendor Marketplace - تم یکپارچه شورت‌کدها
+   فونت: IRANYekanX (فایل‌های فونت را در assets/fonts قرار دهید)
+   تمام متغیرها در همین بخش قابل تغییر هستند.
+   ============================================================= */
+
+@font-face {
+	font-family: 'IRANYekanX';
+	src: url('../fonts/IRANYekanXFaNum-Regular.woff2') format('woff2'),
+	     url('../fonts/IRANYekanXFaNum-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'IRANYekanX';
+	src: url('../fonts/IRANYekanXFaNum-Medium.woff2') format('woff2'),
+	     url('../fonts/IRANYekanXFaNum-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'IRANYekanX';
+	src: url('../fonts/IRANYekanXFaNum-Bold.woff2') format('woff2'),
+	     url('../fonts/IRANYekanXFaNum-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+.vm-wrap {
+	/* ------- پالت رنگی و متغیرهای طراحی ------- */
+	--vm-font: 'IRANYekanX', 'Vazirmatn', Tahoma, sans-serif;
+	--vm-primary: #6C5CE7;
+	--vm-primary-dark: #5849c2;
+	--vm-primary-light: #8f80f0;
+	--vm-accent: #00D1B2;
+	--vm-bg: #F7F7FC;
+	--vm-card-bg: #FFFFFF;
+	--vm-text: #23213B;
+	--vm-text-muted: #7A7A93;
+	--vm-border: #ECECF6;
+	--vm-radius: 18px;
+	--vm-radius-sm: 12px;
+	--vm-shadow: 0 8px 30px rgba(76, 63, 168, 0.08);
+	--vm-shadow-hover: 0 12px 36px rgba(76, 63, 168, 0.14);
+	--vm-green: #17B978;
+	--vm-green-bg: #E6F9F1;
+	--vm-orange: #FF9F43;
+	--vm-orange-bg: #FFF3E4;
+	--vm-red: #FF5B5B;
+	--vm-red-bg: #FFEAEA;
+	--vm-blue: #3B82F6;
+	--vm-blue-bg: #EAF1FF;
+	--vm-gray-bg: #F1F1F6;
+
+	direction: rtl;
+	font-family: var(--vm-font);
+	color: var(--vm-text);
+	max-width: 100%;
+	box-sizing: border-box;
+}
+.vm-wrap * { box-sizing: border-box; }
+.vm-wrap { margin-bottom: 20px; }
+
+/* ------------------- کارت پایه ------------------- */
+.vm-card {
+	background: var(--vm-card-bg);
+	border-radius: var(--vm-radius);
+	box-shadow: var(--vm-shadow);
+	border: 1px solid var(--vm-border);
+	padding: 24px;
+	transition: box-shadow .25s ease, transform .25s ease;
+}
+.vm-card-title {
+	margin: 0 0 18px;
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--vm-text);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.vm-card-title::before {
+	content: '';
+	width: 4px;
+	height: 18px;
+	border-radius: 4px;
+	background: linear-gradient(180deg, var(--vm-primary), var(--vm-accent));
+	display: inline-block;
+}
+
+.vm-notice {
+	text-align: center;
+	color: var(--vm-text-muted);
+	font-weight: 500;
+	padding: 30px 20px;
+}
+.vm-notice-warning {
+	background: var(--vm-orange-bg);
+	color: #b96a10;
+	border-radius: var(--vm-radius-sm);
+	padding: 14px 16px;
+	font-size: 14px;
+	margin-bottom: 16px;
+	border: 1px solid rgba(255, 159, 67, .25);
+}
+
+.vm-empty {
+	text-align: center;
+	color: var(--vm-text-muted);
+	padding: 30px 10px;
+	font-size: 14px;
+}
+
+/* ------------------- کارت موجودی کیف پول ------------------- */
+.vm-wallet-card {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	background: linear-gradient(135deg, var(--vm-primary) 0%, var(--vm-primary-dark) 100%);
+	color: #fff;
+	border: none;
+	position: relative;
+	overflow: hidden;
+}
+.vm-wallet-card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 90% -10%, rgba(255,255,255,.18), transparent 55%);
+	pointer-events: none;
+}
+.vm-wallet-icon {
+	width: 56px;
+	height: 56px;
+	min-width: 56px;
+	background: rgba(255,255,255,.16);
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.vm-wallet-icon svg { width: 28px; height: 28px; color: #fff; }
+.vm-wallet-info { display: flex; flex-direction: column; gap: 6px; z-index: 1; }
+.vm-wallet-label { font-size: 13px; opacity: .85; font-weight: 500; }
+.vm-wallet-amount { font-size: 26px; font-weight: 700; }
+.vm-wallet-amount small { font-size: 13px; font-weight: 400; opacity: .8; }
+.vm-wallet-sub { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+/* ------------------- کارت کمیسیون ------------------- */
+.vm-commission-card {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	justify-content: center;
+	border-right: 4px solid var(--vm-accent);
+}
+.vm-commission-label { font-size: 13px; color: var(--vm-text-muted); }
+.vm-commission-value { font-size: 18px; font-weight: 700; color: var(--vm-primary-dark); }
+
+/* ------------------- چیپ‌های وضعیت ------------------- */
+.vm-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 12px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.vm-chip-green  { background: var(--vm-green-bg);  color: var(--vm-green); }
+.vm-chip-orange { background: var(--vm-orange-bg); color: var(--vm-orange); }
+.vm-chip-red    { background: var(--vm-red-bg);    color: var(--vm-red); }
+.vm-chip-blue   { background: var(--vm-blue-bg);   color: var(--vm-blue); }
+.vm-chip-gray   { background: var(--vm-gray-bg);   color: var(--vm-text-muted); }
+
+/* ------------------- فرم‌ها ------------------- */
+.vm-form { display: flex; flex-direction: column; gap: 14px; }
+.vm-field { display: flex; flex-direction: column; gap: 6px; }
+.vm-field label { font-size: 13px; font-weight: 600; color: var(--vm-text); }
+.vm-required { color: var(--vm-red); }
+.vm-field input,
+.vm-field select,
+.vm-field textarea {
+	font-family: var(--vm-font);
+	border: 1.5px solid var(--vm-border);
+	border-radius: var(--vm-radius-sm);
+	padding: 12px 14px;
+	font-size: 14px;
+	background: var(--vm-bg);
+	color: var(--vm-text);
+	outline: none;
+	transition: border-color .2s ease, box-shadow .2s ease;
+	width: 100%;
+}
+.vm-field input:focus,
+.vm-field select:focus,
+.vm-field textarea:focus {
+	border-color: var(--vm-primary);
+	box-shadow: 0 0 0 4px rgba(108, 92, 231, .12);
+	background: #fff;
+}
+.vm-form-desc { font-size: 13px; color: var(--vm-text-muted); margin: -6px 0 4px; line-height: 1.9; }
+
+/* ------------------- دکمه‌ها ------------------- */
+.vm-btn {
+	font-family: var(--vm-font);
+	border: none;
+	cursor: pointer;
+	border-radius: var(--vm-radius-sm);
+	padding: 13px 20px;
+	font-size: 14px;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.vm-btn-primary {
+	background: linear-gradient(135deg, var(--vm-primary), var(--vm-primary-dark));
+	color: #fff;
+	box-shadow: 0 8px 20px rgba(108, 92, 231, .30);
+}
+.vm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(108, 92, 231, .38); }
+.vm-btn-outline {
+	background: #fff;
+	color: var(--vm-primary-dark);
+	border: 1.5px solid var(--vm-primary-light);
+}
+.vm-btn-outline:hover { background: var(--vm-primary); color: #fff; border-color: var(--vm-primary); transform: translateY(-1px); }
+.vm-btn-sm { padding: 8px 14px; font-size: 12.5px; }
+.vm-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.vm-btn.is-loading { opacity: .75; pointer-events: none; }
+
+/* ------------------- پنل جزئیات سفارش ------------------- */
+.vm-detail-row td { padding: 0 !important; border-bottom: 1px solid var(--vm-border) !important; }
+.vm-order-detail-panel {
+	background: var(--vm-bg);
+	border-radius: var(--vm-radius-sm);
+	padding: 18px;
+	margin: 10px 0;
+	animation: vmFadeIn .2s ease;
+}
+.vm-detail-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 12px;
+}
+.vm-detail-item { display: flex; flex-direction: column; gap: 4px; background: #fff; border-radius: 10px; padding: 10px 12px; border: 1px solid var(--vm-border); }
+.vm-detail-item span { font-size: 11.5px; color: var(--vm-text-muted); }
+.vm-detail-item strong { font-size: 13px; color: var(--vm-text); font-weight: 600; }
+.vm-detail-wide { grid-column: 1 / -1; }
+.vm-table tfoot td { background: var(--vm-bg); font-size: 13px; padding: 12px 14px; border-top: 2px solid var(--vm-border); }
+
+/* ------------------- کارت‌های سفارش فروشنده ------------------- */
+.vm-order-cards { display: flex; flex-direction: column; gap: 16px; }
+.vm-order-card {
+	border: 1px solid var(--vm-border);
+	border-radius: var(--vm-radius-sm);
+	padding: 16px 18px;
+	background: #fff;
+	transition: box-shadow .2s ease;
+}
+.vm-order-card:hover { box-shadow: 0 6px 18px rgba(76,63,168,.08); }
+.vm-order-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.vm-order-card-head-right { display: flex; flex-direction: column; gap: 2px; }
+.vm-order-number { font-size: 14.5px; font-weight: 700; color: var(--vm-text); }
+.vm-order-date { font-size: 12px; color: var(--vm-text-muted); }
+.vm-order-card-customer { font-size: 13px; color: var(--vm-text-muted); margin-bottom: 12px; }
+.vm-order-card-customer strong { color: var(--vm-text); font-weight: 600; }
+
+.vm-order-products-list {
+	background: var(--vm-bg);
+	border-radius: 12px;
+	padding: 10px 14px;
+	margin-bottom: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.vm-product-row { display: flex; flex-direction: column; gap: 3px; padding: 4px 0; border-bottom: 1px dashed var(--vm-border); }
+.vm-product-row:last-child { border-bottom: none; padding-bottom: 0; }
+.vm-product-row-name { font-size: 13.5px; font-weight: 600; color: var(--vm-text); line-height: 1.7; overflow-wrap: anywhere; }
+.vm-product-row-meta { font-size: 12px; color: var(--vm-text-muted); }
+.vm-products-more { font-size: 12px; color: var(--vm-primary-dark); font-weight: 600; }
+
+.vm-order-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+.vm-order-stat {
+	background: var(--vm-bg);
+	border-radius: 10px;
+	padding: 10px 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	text-align: center;
+}
+.vm-order-stat span { font-size: 11px; color: var(--vm-text-muted); }
+.vm-order-stat strong { font-size: 14px; color: var(--vm-text); }
+.vm-order-stat-highlight { background: var(--vm-green-bg); }
+.vm-order-stat-highlight strong { color: var(--vm-green); }
+
+.vm-detail-block { margin-top: 14px; }
+
+/* ------------------- نوار خلاصه سفارشات ------------------- */
+.vm-orders-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+.vm-orders-summary .vm-order-stat { padding: 14px 12px; }
+.vm-orders-summary .vm-order-stat strong { font-size: 16px; }
+
+/* ------------------- نشان سفارش موفق/پرداخت‌شده ------------------- */
+.vm-order-card.is-success { border-right: 4px solid var(--vm-green); }
+.vm-order-card.is-cancelled { border-right: 4px solid var(--vm-red); opacity: .85; }
+.vm-paid-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	background: var(--vm-green-bg);
+	color: var(--vm-green);
+	font-size: 11px;
+	font-weight: 700;
+	padding: 3px 9px;
+	border-radius: 999px;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+.vm-paid-badge svg { width: 12px; height: 12px; }
+
+.vm-order-card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+
+/* قانون دفاعی: هر SVG داخل پنل فروشنده که سایز مشخصی نداشته باشد، بزرگ نمایش داده نشود */
+.vm-wrap svg { width: 20px; height: 20px; }
+
+/* ------------------- باکس‌های خلاصه سفارشات (در حال انجام / موفق / درآمد) ------------------- */
+.vm-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.vm-summary-box {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	background: var(--vm-bg);
+	border-radius: var(--vm-radius-sm);
+	padding: 14px;
+}
+.vm-summary-icon {
+	width: 42px;
+	height: 42px;
+	min-width: 42px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+}
+.vm-summary-icon svg { width: 20px; height: 20px; }
+.vm-summary-box-progress .vm-summary-icon { color: var(--vm-orange); box-shadow: inset 0 0 0 1.5px rgba(255,159,67,.25); }
+.vm-summary-box-success .vm-summary-icon { color: var(--vm-green); box-shadow: inset 0 0 0 1.5px rgba(23,185,120,.25); }
+.vm-summary-box-income .vm-summary-icon { color: var(--vm-primary); box-shadow: inset 0 0 0 1.5px rgba(108,92,231,.25); }
+.vm-summary-info { display: flex; flex-direction: column; gap: 2px; overflow: hidden; }
+.vm-summary-label { font-size: 11.5px; color: var(--vm-text-muted); }
+.vm-summary-value { font-size: 15px; font-weight: 700; color: var(--vm-text); }
+.vm-summary-sub { font-size: 11px; color: var(--vm-text-muted); }
+
+@media (max-width: 560px) {
+	.vm-summary-grid { grid-template-columns: 1fr; }
+}
+
+/* ------------------- نوار پیش‌نمایش مدیرکل ------------------- */
+.vm-preview-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+	background: var(--vm-blue-bg);
+	border: 1px dashed var(--vm-blue);
+	border-radius: var(--vm-radius-sm);
+	padding: 12px 16px;
+	margin-bottom: 16px;
+	font-size: 13px;
+}
+.vm-preview-bar-label { color: #1e4fa3; font-weight: 600; }
+.vm-preview-select {
+	font-family: var(--vm-font);
+	border: 1.5px solid var(--vm-blue);
+	border-radius: 10px;
+	padding: 8px 12px;
+	background: #fff;
+	color: var(--vm-text);
+	font-size: 13px;
+}
+
+@media (max-width: 560px) {
+	.vm-order-stats { grid-template-columns: 1fr; }
+	.vm-orders-summary { grid-template-columns: 1fr; }
+	.vm-order-card-head { flex-direction: column; }
+}
+
+.vm-form-message { font-size: 13px; font-weight: 600; min-height: 18px; }
+.vm-form-message.is-success { color: var(--vm-green); }
+.vm-form-message.is-error { color: var(--vm-red); }
+
+/* ------------------- جدول‌ها ------------------- */
+.vm-table-wrap { overflow-x: auto; border-radius: var(--vm-radius-sm); }
+.vm-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+.vm-table thead th {
+	text-align: right;
+	background: var(--vm-bg);
+	color: var(--vm-text-muted);
+	font-weight: 600;
+	padding: 12px 14px;
+	white-space: nowrap;
+}
+.vm-table thead th:first-child { border-radius: 10px 0 0 10px; }
+.vm-table thead th:last-child { border-radius: 0 10px 10px 0; }
+.vm-table tbody td {
+	padding: 14px;
+	border-bottom: 1px solid var(--vm-border);
+	vertical-align: middle;
+}
+.vm-table tbody tr:last-child td { border-bottom: none; }
+.vm-table tbody tr:hover { background: #FBFAFF; }
+.vm-order-item { font-size: 12.5px; color: var(--vm-text-muted); overflow-wrap: anywhere; word-break: break-word; line-height: 1.6; }
+.vm-order-item + .vm-order-item { margin-top: 4px; }
+.vm-products-cell { max-width: 220px; min-width: 160px; }
+.vm-products-more { font-size: 11.5px; color: var(--vm-primary-dark); font-weight: 600; margin-top: 4px; display: inline-block; }
+.vm-table td, .vm-table th { overflow-wrap: anywhere; }
+
+/* ------------------- صفحه‌بندی ------------------- */
+.vm-pagination { display: flex; gap: 6px; margin-top: 18px; flex-wrap: wrap; }
+.vm-page-link {
+	min-width: 34px;
+	height: 34px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: var(--vm-bg);
+	color: var(--vm-text);
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: 600;
+	transition: background .2s ease, color .2s ease;
+}
+.vm-page-link:hover { background: var(--vm-primary-light); color: #fff; }
+.vm-page-link.is-active { background: var(--vm-primary); color: #fff; }
+
+/* ------------------- داشبورد و تب‌ها ------------------- */
+.vm-dashboard { display: flex; flex-direction: column; gap: 20px; }
+.vm-dashboard-top { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+@media (max-width: 700px) { .vm-dashboard-top { grid-template-columns: 1fr; } }
+
+.vm-tabs-nav {
+	display: flex;
+	gap: 6px;
+	background: var(--vm-bg);
+	padding: 6px;
+	border-radius: 14px;
+	margin-bottom: 18px;
+	flex-wrap: wrap;
+}
+.vm-tab-btn {
+	font-family: var(--vm-font);
+	border: none;
+	background: transparent;
+	color: var(--vm-text-muted);
+	font-weight: 600;
+	font-size: 13.5px;
+	padding: 10px 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background .2s ease, color .2s ease;
+}
+.vm-tab-btn.is-active { background: #fff; color: var(--vm-primary-dark); box-shadow: 0 4px 14px rgba(76,63,168,.12); }
+.vm-tab-panel { display: none; }
+.vm-tab-panel.is-active { display: block; animation: vmFadeIn .25s ease; }
+@keyframes vmFadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+
+/* ------------------- ریسپانسیو ------------------- */
+@media (max-width: 480px) {
+	.vm-card { padding: 18px; }
+	.vm-wallet-amount { font-size: 22px; }
+	.vm-tab-btn { padding: 8px 12px; font-size: 12.5px; }
+}
+
+/* ------------------- استایل پیشخوان ادمین ------------------- */
+.vm-admin-wrap { font-family: var(--vm-font, inherit); }
+.vm-admin-wrap .vm-chip { vertical-align: middle; }
